@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: master-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/brian-workman/argo-master-app-demo.git
+    targetRevision: HEAD
+    path: master-app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
